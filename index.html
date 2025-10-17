@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Kazuo | Portfólio de Marketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* cinza muito claro */
+            color: #1e293b; /* cinza escuro */
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+        }
+        .skill-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .profile-img, .project-img {
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho e Navegação -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800">
+                <a href="#inicio">Lucas Kazuo</a>
+            </h1>
+            <nav class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                <a href="#sobre" class="hover:text-blue-500 transition-colors">Sobre</a>
+                <a href="#experiencia" class="hover:text-blue-500 transition-colors">Experiência</a>
+                <a href="#portfolio" class="hover:text-blue-500 transition-colors">Portfólio</a>
+                <a href="#contato" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all">Contato</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#sobre" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Sobre</a>
+            <a href="#experiencia" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Experiência</a>
+            <a href="#portfolio" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Portfólio</a>
+            <a href="#contato" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Inicial (Hero) -->
+        <section id="inicio" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <img src="IMG_20190521_213012.jpg" alt="Foto de Lucas Kazuo" class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg profile-img">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Olá, eu sou <span class="text-gradient">Lucas Kazuo</span></h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Especialista em Marketing Digital apaixonado por criar estratégias online, análise de dados, publicidade, mídias sociais e SEO para alcançar resultados incríveis para os clientes.</p>
+                <a href="#portfolio" class="bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                    Veja meus projetos
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção Sobre Mim e Habilidades -->
+        <section id="sobre" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-2">Sobre Mim</h3>
+                    <p class="text-gray-500">Minha jornada e minhas principais competências.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                    <div class="lg:col-span-2">
+                        <h4 class="text-2xl font-bold mb-4">Quem sou eu</h4>
+                        <p class="text-gray-600 mb-4">
+                            Sou um estrategista de marketing digital qualificado, com experiência em estratégias de marketing online, análise de dados, publicidade, gestão de mídias sociais, marketing de conteúdo, SEO, PPC e e-mail marketing. Possuo habilidades técnicas em WordPress e HTML, além de experiência em gerenciamento de projetos e trabalho em equipe.
+                        </p>
+                        <p class="text-gray-600">
+                            Sempre busco me atualizar sobre as tendências e tecnologias do setor e tenho uma paixão por alcançar os resultados desejados para meus clientes, trazendo uma bagagem em comunicação e inovação para agregar em novos projetos.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-3">
+                        <h4 class="text-2xl font-bold mb-4 text-center lg:text-left">Minhas Habilidades</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">Gestão de Tráfego</h5>
+                            </div>
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">Criação de Marca</h5>
+                            </div>
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">Social Media</h5>
+                            </div>
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">Redação Publicitária</h5>
+                            </div>
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">CRM</h5>
+                            </div>
+                            <div class="skill-card bg-gray-50 p-6 rounded-lg text-center">
+                                <h5 class="font-bold">Análise de Dados</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Experiência -->
+        <section id="experiencia" class="py-20">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-2">Experiência Profissional</h3>
+                    <p class="text-gray-500">Minha trajetória em algumas empresas incríveis.</p>
+                </div>
+
+                <div class="relative max-w-3xl mx-auto">
+                  <div class="absolute left-1/2 w-0.5 h-full bg-gray-200 transform -translate-x-1/2"></div>
+                  
+                  <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-white">1</h1></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                      <h4 class="font-bold text-gray-800 text-lg">Yume Japan Food</h4>
+                      <p class="text-sm font-medium text-blue-500">Proprietário e Gestor</p>
+                      <p class="text-sm text-gray-500 mb-2">2023 - 2025</p>
+                      <p class="text-sm leading-snug tracking-wide text-gray-600">Gestão completa do restaurante, incluindo áreas administrativa, financeira, operacional, marketing e logística de eventos.</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto text-white font-semibold text-lg">2</h1></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                      <h4 class="font-bold text-gray-800 text-lg">Agência FB Killa</h4>
+                      <p class="text-sm font-medium text-blue-500">Co-fundador</p>
+                      <p class="text-sm text-gray-500 mb-2">2021 - 2023</p>
+                      <p class="text-sm leading-snug tracking-wide text-gray-600">Criação de copy, estratégias de marketing digital para infoprodutos, otimização de campanhas (ROI de até 30%) e páginas de venda.</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-white">3</h1></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                      <h4 class="font-bold text-gray-800 text-lg">OPPO</h4>
+                      <p class="text-sm font-medium text-blue-500">Analista de Brand Strategy</p>
+                      <p class="text-sm text-gray-500 mb-2">Mai 2021 - Abr 2022</p>
+                      <p class="text-sm leading-snug tracking-wide text-gray-600">Elaboração de calendário estratégico para o lançamento da marca no Brasil e acompanhamento de mídias 360°.</p>
+                    </div>
+                  </div>
+
+                  <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto text-white font-semibold text-lg">4</h1></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                      <h4 class="font-bold text-gray-800 text-lg">Xiaomi</h4>
+                      <p class="text-sm font-medium text-blue-500">Customer Relations & Marketing</p>
+                      <p class="text-sm text-gray-500 mb-2">Jan 2019 - Mai 2021</p>
+                      <p class="text-sm leading-snug tracking-wide text-gray-600">Responsável pela introdução da marca no Brasil, mídias pagas, CRM, e-mail marketing e adaptação da comunicação para o mercado brasileiro.</p>
+                    </div>
+                  </div>
+
+                   <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-white">5</h1></div>
+                    <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4">
+                      <h4 class="font-bold text-gray-800 text-lg">RawaR</h4>
+                      <p class="text-sm font-medium text-blue-500">Assistente de Marketing</p>
+                      <p class="text-sm text-gray-500 mb-2">Nov 2017 - Jan 2019</p>
+                      <p class="text-sm leading-snug tracking-wide text-gray-600">Elaboração de campanhas de social media, estratégias com influenciadores e criação de campanhas de mídias pagas e orgânicas.</p>
+                    </div>
+                  </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- Seção Portfólio / Feitos -->
+        <section id="portfolio" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-2">Principais Feitos</h3>
+                    <p class="text-gray-500">Uma seleção dos meus projetos de maior impacto.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projeto 1 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="IMG-20190602-WA0004.jpg" alt="Inauguração da loja Xiaomi" class="w-full h-48 project-img">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2 project-title">Inauguração 1ª Loja Xiaomi no Brasil</h4>
+                            <p class="text-gray-600 mb-4 flex-grow project-description">Participei ativamente da estruturação das campanhas de marketing digital para criar interesse na marca e na estreia da loja.</p>
+                            <div>
+                                <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2-5 py-0.5 rounded-full">Lançamento</span>
+                                <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2-5 py-0.5 rounded-full">Marketing Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projeto 2 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="IMG_20181015_140506_386.jpg" alt="Feira BGS com NVIDIA" class="w-full h-48 project-img">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2 project-title">Feira BGS em parceria com a NVIDIA</h4>
+                            <p class="text-gray-600 mb-4 flex-grow project-description">Fui responsável pela estruturação e organização da agenda de influenciadores digitais para o evento.</p>
+                             <div>
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Eventos</span>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Influenciadores</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Projeto 3 -->
+                    <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                        <img src="DSC05433.jpg" alt="Campanha de Vendas Xiaomi" class="w-full h-48 project-img">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h4 class="text-xl font-bold mb-2 project-title">Reconhecimento em Vendas Xiaomi</h4>
+                            <p class="text-gray-600 mb-4 flex-grow project-description">Recebi um certificado de reconhecimento pelo excelente desempenho durante a campanha de vendas "Livestream" de 2020 da Xiaomi.</p>
+                            <div>
+                                <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Performance</span>
+                                <span class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Campanhas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Contato -->
+        <section id="contato" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                 <h3 class="text-3xl md:text-4xl font-bold mb-2">Vamos Conversar?</h3>
+                 <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente ou apenas quer trocar uma ideia, entre em contato!</p>
+                 <a href="mailto:lucas.uzita14@gmail.com" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-4 px-10 rounded-lg text-xl hover:scale-105 transition-transform shadow-lg">
+                    Mande um E-mail
+                 </a>
+                 <p class="mt-6 text-gray-500">Ou me encontre no <a href="https://www.linkedin.com/in/lucas-kazuo-nishiuchi-uzita/" target="_blank" rel="noopener noreferrer" class="text-blue-500 font-semibold underline hover:text-blue-700">LinkedIn</a>.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Lucas Kazuo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
+
