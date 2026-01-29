@@ -1,426 +1,410 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucas Kazuo - Marketing Data Analyst & Automation</title>
+    <title>Lucas Kazuo | Marketing Data & Performance Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
         :root {
-            --primary: #00f0ff;
-            --secondary: #7000ff;
-            --bg-dark: #0a0a0a;
-            --card-bg: #111111;
+            --primary: #3b82f6;
+            --accent: #6366f1;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #e5e5e5;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
         }
 
-        h1, h2, h3, .mono {
-            font-family: 'JetBrains Mono', monospace;
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .text-gradient {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.5), rgba(99, 102, 241, 0.1));
+            padding: 1px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        #canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
+        .skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .skill-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
         }
 
-        /* Timeline and Accordion Styles */
         .timeline-item::before {
             content: '';
             position: absolute;
             left: -9px;
-            top: 8px;
+            top: 5px;
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background: var(--bg-dark);
-            border: 2px solid var(--primary);
-            z-index: 10;
+            background: var(--primary);
+            box-shadow: 0 0 15px var(--primary);
         }
 
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 800px;
-            opacity: 1;
-            margin-top: 1rem;
-            padding-bottom: 0.5rem;
-        }
-
-        /* Gallery Styles */
-        .gallery-item {
+        .photo-card {
             position: relative;
             overflow: hidden;
-            border-radius: 0.75rem;
-            aspect-ratio: 16/10;
-            background-color: #1a1a1a;
+            border-radius: 1.5rem;
+            aspect-ratio: 4 / 3;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.25rem;
-            z-index: 10;
-        }
-        
-        @media (max-width: 768px) {
-            .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent 60%); }
-            .timeline-item::before { left: -7px; width: 14px; height: 14px; }
-        }
-
-        @media (min-width: 769px) {
-            .gallery-item:hover .gallery-overlay { opacity: 1; }
-            .gallery-item:hover img { transform: scale(1.08); }
-        }
-        
-        .gallery-item img {
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        .photo-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        /* Loading Placeholder Animation */
-        .loading-shimmer {
-            background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
+        .photo-card:hover img {
+            transform: scale(1.1);
         }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 6, 23, 0.9) 0%, rgba(2, 6, 23, 0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0.9;
         }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
 </head>
-<body class="antialiased relative min-h-screen">
+<body>
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <div class="flex-shrink-0 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <span class="text-xl md:text-2xl font-bold tracking-tighter mono">
-                        Lucas<span class="text-cyan-400">.Kazuo</span>
-                    </span>
-                </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
-                        <a href="#home" class="hover:text-cyan-400 transition-colors px-2 py-2 text-sm font-medium">Início</a>
-                        <a href="#skills" class="hover:text-cyan-400 transition-colors px-2 py-2 text-sm font-medium">Skills</a>
-                        <a href="#experience" class="hover:text-cyan-400 transition-colors px-2 py-2 text-sm font-medium">Experiência</a>
-                        <a href="#gallery" class="hover:text-cyan-400 transition-colors px-2 py-2 text-sm font-medium">Vivências</a>
-                        <a href="#contact" class="bg-cyan-500/10 border border-cyan-500/50 hover:bg-cyan-500/20 text-cyan-400 px-4 py-2 rounded-md text-sm font-medium transition-all">
-                            Fale Comigo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="p-2 text-gray-300 hover:text-white" aria-label="Menu">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+    <!-- Header / Nav -->
+    <nav class="fixed w-full z-50 top-0 left-0 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-extrabold tracking-tighter">
+                LUCAS<span class="text-blue-500">KAZUO</span>
             </div>
+            <div class="hidden lg:flex space-x-10 text-sm font-medium text-slate-400">
+                <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+                <a href="#stacks" class="hover:text-white transition-colors">Stacks</a>
+                <a href="#experiencia" class="hover:text-white transition-colors">Experiência</a>
+                <a href="#feitos" class="hover:text-white transition-colors">Vivências</a>
+                <a href="#contato" class="px-5 py-2.5 bg-blue-600 text-white rounded-full hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/20">Contato</a>
+            </div>
+            <button class="lg:hidden text-2xl" onclick="toggleMenu()"><i class="fas fa-bars text-white"></i></button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-gray-800 absolute w-full left-0">
-            <div class="px-4 pt-4 pb-6 space-y-2">
-                <a href="#home" class="mobile-link block py-3 text-lg border-b border-gray-800/50">Início</a>
-                <a href="#skills" class="mobile-link block py-3 text-lg border-b border-gray-800/50">Skills</a>
-                <a href="#experience" class="mobile-link block py-3 text-lg border-b border-gray-800/50">Experiência</a>
-                <a href="#gallery" class="mobile-link block py-3 text-lg border-b border-gray-800/50">Vivências</a>
-                <a href="#contact" class="mobile-link block py-4 text-cyan-400 font-bold">Fale Comigo</a>
-            </div>
+        <!-- Mobile Menu (Simple toggle) -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-white/5 p-6 flex flex-col space-y-4 text-center">
+            <a href="#sobre" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Sobre</a>
+            <a href="#stacks" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Stacks</a>
+            <a href="#experiencia" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Experiência</a>
+            <a href="#feitos" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Vivências</a>
+            <a href="#contato" onclick="toggleMenu()" class="text-blue-400 font-bold">Contato</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-24 pb-16 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[80vh] md:min-h-screen">
-        <div id="canvas-container"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center lg:text-left lg:w-3/4">
-                <div class="inline-flex items-center px-3 py-1 rounded-full border border-gray-700 bg-gray-900/50 mb-6 backdrop-blur-sm">
-                    <span class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
-                    <span class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mono">Marketing Data Analyst</span>
+    <main class="pt-32">
+        <!-- Hero Section / Sobre -->
+        <section id="sobre" class="max-w-7xl mx-auto px-6 pb-24 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest">
+                    <span class="relative flex h-2 w-2 mr-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Disponível para Projetos
                 </div>
-                <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 leading-[1.1]">
-                    Estratégia de Negócios & <br class="hidden md:block">
-                    <span class="text-gradient">Inteligência de Dados</span>
+                <h1 class="text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
+                    Growth & <span class="gradient-text">Data Analysis</span> Specialist.
                 </h1>
-                <p class="text-base md:text-xl text-gray-400 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Especialista em campanhas Full Funnel e automação com Python. 
-                    Unindo estratégia de marca à análise avançada para otimizar performance.
+                <p class="text-xl text-slate-400 leading-relaxed max-w-xl">
+                    Estrategista de marketing digital unindo a visão de negócios à análise de dados avançada. Especialista em automação com <span class="text-white font-semibold">Python</span> e gestão de mídia <span class="text-white font-semibold">Full Funnel</span>.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#experience" class="px-8 py-4 bg-white text-black font-bold rounded hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-                        Ver Trajetória <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                    <a href="mailto:lucas.uzita14@gmail.com" class="px-8 py-4 border border-gray-700 rounded hover:border-cyan-400 hover:text-cyan-400 transition-all flex items-center justify-center">
-                        Fale Comigo
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#experiencia" class="px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-slate-200 transition-all">Ver Experiência</a>
+                    <a href="https://www.linkedin.com/in/lucas-kazuo-nishiuchi-uzita/" target="_blank" class="px-8 py-4 glass border-white/10 font-bold rounded-2xl hover:bg-white/5 transition-all flex items-center">
+                        <i class="fab fa-linkedin mr-3 text-xl"></i> LinkedIn
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vivências (Galeria) - Ajustado para os nomes reais no GitHub -->
-    <section id="gallery" class="py-16 md:py-24 bg-neutral-900/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-2xl md:text-4xl font-bold mb-4 uppercase tracking-tighter">Vivências</h2>
-                <div class="h-1 w-12 md:w-20 bg-cyan-500 mx-auto rounded"></div>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Foto 1: Xiaomi_launch.jpg -->
-                <div class="gallery-item loading-shimmer">
-                    <img src="Xiaomi_launch.jpg" alt="Evento Xiaomi" onload="this.parentElement.classList.remove('loading-shimmer')" onerror="this.src='https://placehold.co/800x600/111/444?text=Evento+Xiaomi';">
-                    <div class="gallery-overlay">
-                        <span class="text-cyan-400 text-[10px] font-mono font-bold mb-1 uppercase tracking-widest">Xiaomi Brasil</span>
-                        <h3 class="text-white font-bold text-lg leading-tight">Lançamento Oficial</h3>
-                        <p class="text-gray-400 text-xs mt-1">Estratégia de marketing e presença de marca.</p>
-                    </div>
-                </div>
-
-                <!-- Foto 2: redminote.jpg -->
-                <div class="gallery-item loading-shimmer">
-                    <img src="redminote.jpg" alt="Redmi Note 10" onload="this.parentElement.classList.remove('loading-shimmer')" onerror="this.src='https://placehold.co/800x600/111/444?text=Redmi+Note';">
-                    <div class="gallery-overlay">
-                        <span class="text-cyan-400 text-[10px] font-mono font-bold mb-1 uppercase tracking-widest">Performance</span>
-                        <h3 class="text-white font-bold text-lg leading-tight">Série Redmi Note</h3>
-                        <p class="text-gray-400 text-xs mt-1">Campanhas de introdução de produto.</p>
-                    </div>
-                </div>
-
-                <!-- Foto 3: equip_xiaomi.jpg -->
-                <div class="gallery-item loading-shimmer">
-                    <img src="equip_xiaomi.jpg" alt="Equipe Xiaomi" onload="this.parentElement.classList.remove('loading-shimmer')" onerror="this.src='https://placehold.co/800x600/111/444?text=Equipe+Xiaomi';">
-                    <div class="gallery-overlay">
-                        <span class="text-cyan-400 text-[10px] font-mono font-bold mb-1 uppercase tracking-widest">Liderança</span>
-                        <h3 class="text-white font-bold text-lg leading-tight">Marketing Strategy</h3>
-                        <p class="text-gray-400 text-xs mt-1">Coordenação e alinhamento de equipe técnica.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                <div class="p-8 rounded-xl bg-[#111] border border-gray-800 hover:border-cyan-500/50 transition-all">
-                    <div class="w-12 h-12 bg-cyan-900/20 rounded-lg flex items-center justify-center mb-6 text-cyan-400">
-                        <i class="fas fa-code text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Dados & Automação</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Python (Pandas, NumPy, BeautifulSoup), ETL de APIs de Mídia e SQL para análise de performance.</p>
-                </div>
-                <div class="p-8 rounded-xl bg-[#111] border border-gray-800 hover:border-purple-500/50 transition-all">
-                    <div class="w-12 h-12 bg-purple-900/20 rounded-lg flex items-center justify-center mb-6 text-purple-400">
-                        <i class="fas fa-bullseye text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Mídia Performance</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Google Ads, Meta Ads e Social Ads com foco em redução de CAC e escala de ROI/ROAS.</p>
-                </div>
-                <div class="p-8 rounded-xl bg-[#111] border border-gray-800 hover:border-pink-500/50 transition-all">
-                    <div class="w-12 h-12 bg-pink-900/20 rounded-lg flex items-center justify-center mb-6 text-pink-400">
-                        <i class="fas fa-chart-line text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Analytics & CRM</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">GA4, Looker Studio e estruturação de réguas de CRM complexas para aumento de LTV.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section (Accordion) -->
-    <section id="experience" class="py-16 md:py-24 bg-neutral-900/30">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-2xl md:text-4xl font-bold mb-4 uppercase tracking-tighter">Experiência</h2>
-                <div class="h-1 w-12 md:w-20 bg-cyan-500 mx-auto rounded"></div>
-            </div>
-
-            <div class="relative border-l border-gray-800 ml-4 md:ml-6 space-y-8">
-                <!-- Mad Company -->
-                <div class="timeline-item accordion-item pl-8 md:pl-10 relative cursor-pointer" onclick="toggleAccordion(this)">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <span class="text-cyan-400 text-xs font-mono mb-1 block">2024 - ATUAL</span>
-                            <h3 class="text-lg md:text-xl font-bold text-white leading-tight">Marketing Data Analyst</h3>
-                            <h4 class="text-gray-500 text-sm">Mad Company</h4>
+            <div class="relative">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px]"></div>
+                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-purple-600/20 rounded-full blur-[100px]"></div>
+                <div class="gradient-border overflow-hidden">
+                    <div class="bg-slate-900 rounded-[calc(1rem-1px)] p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                            </div>
+                            <span class="text-xs text-slate-500 font-mono">marketing_automation.py</span>
                         </div>
-                        <i class="fas fa-plus text-gray-700 text-xs mt-2 chevron-icon"></i>
+                        <div class="font-mono text-sm leading-loose">
+                            <p><span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd</p>
+                            <p><span class="text-purple-400">import</span> google_ads_api <span class="text-purple-400">as</span> ads</p>
+                            <p class="text-slate-500 mt-4"># Extraindo dados de performance</p>
+                            <p>df = ads.get_report(<span class="text-yellow-200">'ROI_Analaysis'</span>)</p>
+                            <p>df[<span class="text-yellow-200">'ROAS'</span>] = df[<span class="text-yellow-200">'Conversion_Value'</span>] / df[<span class="text-yellow-200">'Cost'</span>]</p>
+                            <p><span class="text-purple-400">if</span> df[<span class="text-yellow-200">'ROAS'</span>].mean() < 3.5:</p>
+                            <p class="ml-4 text-blue-400">optimize_campaigns(strategy=<span class="text-yellow-200">'retargeting'</span>)</p>
+                            <p class="text-green-400 mt-4">print("Insights gerados com sucesso!")</p>
+                        </div>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="space-y-3 text-gray-400 text-sm list-disc pl-4">
-                            <li>Análise estratégica de volumes massivos de dados para otimização de campanhas.</li>
-                            <li>Pipelines em Python integrando fontes (Google, Meta, CRM), reduzindo tempo de reporte em 60%.</li>
-                        </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stacks / Skills -->
+        <section id="stacks" class="py-24 glass border-y border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-4 gap-12">
+                    <div>
+                        <h2 class="text-sm font-bold text-blue-500 uppercase tracking-widest mb-4 italic">// Tech Stack</h2>
+                        <h3 class="text-3xl font-bold">Domínio de Ferramentas</h3>
                     </div>
+                    <div class="lg:col-span-3 grid md:grid-cols-3 gap-8">
+                        <div class="space-y-4">
+                            <h4 class="font-bold flex items-center"><i class="fas fa-code mr-2 text-blue-500"></i> Dados & Dev</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Python (Pandas/NumPy)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Web Scraping</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Automação de APIs</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">SQL (Básico)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">HTML/WordPress</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold flex items-center"><i class="fas fa-bullhorn mr-2 text-blue-500"></i> Mídia Paga</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Google Ads (Avançado)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Meta Ads</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">TikTok/LinkedIn Ads</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Growth Hacking</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-bold flex items-center"><i class="fas fa-chart-pie mr-2 text-blue-500"></i> Tracking & BI</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">GA4 & GTM</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Looker Studio</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">CRM (All-In)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">SEO Técnico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiência Detalhada -->
+        <section id="experiencia" class="py-32 max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-20 text-center">Jornada Profissional</h2>
+            
+            <div class="space-y-20 relative border-l border-white/10 ml-4 lg:ml-0">
+                
+                <!-- Mad Company -->
+                <div class="timeline-item relative pl-12 group">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Marketing Data Analyst</h3>
+                            <p class="text-blue-500 font-semibold">Mad Company (Agência de Marketing)</p>
+                        </div>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">2024 — ATUAL</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Análise estratégica de grandes volumes de dados para otimização contínua de campanhas de performance.</li>
+                        <li>Desenvolvimento de dashboards automatizados para monitoramento de KPIs vitais em tempo real.</li>
+                        <li><strong class="text-slate-200">Destaque Técnico:</strong> Implementação de pipelines de dados via <span class="text-blue-400">Python</span> para integração direta entre Google Ads, Meta e CRM, eliminando relatórios manuais e aumentando a precisão do ROI.</li>
+                        <li>Colaboração ativa com times de mídia para redução de CAC através de modelos preditivos e analíticos.</li>
+                    </ul>
+                </div>
+
+                <!-- Oppo -->
+                <div class="timeline-item relative pl-12 group">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Analista de Brand Strategy</h3>
+                            <p class="text-blue-500 font-semibold">OPPO Brasil</p>
+                        </div>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">Maio 2021 — Abril 2022</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Liderança na elaboração do calendário estratégico para o lançamento oficial da marca OPPO no Brasil.</li>
+                        <li>Gestão e acompanhamento de mídias 360º (online e offline) em parceria com agências multinacionais.</li>
+                        <li>Automação de monitorização de KPIs através de integração de APIs de redes sociais.</li>
+                    </ul>
                 </div>
 
                 <!-- Xiaomi -->
-                <div class="timeline-item accordion-item pl-8 md:pl-10 relative cursor-pointer" onclick="toggleAccordion(this)">
-                    <div class="flex items-start justify-between">
+                <div class="timeline-item relative pl-12 group">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                            <span class="text-cyan-400 text-xs font-mono mb-1 block">2019 - 2021</span>
-                            <h3 class="text-lg md:text-xl font-bold text-white leading-tight">Digital Marketing Specialist</h3>
-                            <h4 class="text-gray-500 text-sm">DL - Projeto Xiaomi</h4>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Marketing Product Manager & CRM</h3>
+                            <p class="text-blue-500 font-semibold">Xiaomi (DL Brasil)</p>
                         </div>
-                        <i class="fas fa-plus text-gray-700 text-xs mt-2 chevron-icon"></i>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">Jan 2019 — Maio 2021</span>
                     </div>
-                    <div class="accordion-content">
-                        <ul class="space-y-3 text-gray-400 text-sm list-disc pl-4">
-                            <li>Liderança técnica na expansão massiva da marca Xiaomi no Brasil.</li>
-                            <li>Uso de lógica de programação para segmentação avançada de CRM (All-In).</li>
-                        </ul>
+                    <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Participação direta na estruturação das campanhas de expansão da marca no território brasileiro.</li>
+                        <li><strong class="text-slate-200">CRM Specialist:</strong> Criação de réguas de comunicação complexas na plataforma All-In com lógica de segmentação avançada.</li>
+                        <li>Gestão da comunicação de produto e estratégia de público-alvo para o mercado nacional.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Resultados e Vivências Visuais -->
+        <section id="feitos" class="py-32 bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Marcos & Vivências</h2>
+                    <p class="text-slate-400">Resultados tangíveis e presença em grandes eventos do setor.</p>
+                </div>
+
+                <!-- Cards de Texto -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="p-8 rounded-3xl glass text-left border border-white/5">
+                        <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6 text-orange-500">
+                            <i class="fas fa-store text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Lançamento Xiaomi BR</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Estruturação de marketing digital para a estreia da primeira loja oficial e criação de interesse massivo na marca.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl glass text-left border border-white/5">
+                        <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-6 text-green-500">
+                            <i class="fas fa-gamepad text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">BGS & NVIDIA</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Organização estratégica de agenda e ativação com influenciadores digitais durante a feira gamer.</p>
+                    </div>
+
+                    <div class="p-8 rounded-3xl glass text-left border border-white/5">
+                        <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 text-blue-500">
+                            <i class="fas fa-award text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Reconhecimento 2020</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Certificado de Performance Excepcional na campanha Livestream Sales da Xiaomi global.</p>
+                    </div>
+                </div>
+
+                <!-- Galeria de Fotos -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Foto 1 -->
+                    <div class="photo-card group">
+                        <img src="Xiaomi_launch.jpg" alt="Lançamento oficial Xiaomi Brasil" onerror="this.src='https://images.unsplash.com/photo-1556740734-7f9a2b7a0f42?auto=format&fit=crop&q=80&w=800'">
+                        <div class="photo-overlay">
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Xiaomi Brasil</span>
+                            <h4 class="text-lg font-bold">Lançamento Oficial</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 2 -->
+                    <div class="photo-card group">
+                        <img src="redminote.jpg" alt="Campanha Série Redmi Note" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800'">
+                        <div class="photo-overlay">
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Performance</span>
+                            <h4 class="text-lg font-bold">Série Redmi Note</h4>
+                        </div>
+                    </div>
+
+                    <!-- Foto 3 -->
+                    <div class="photo-card group">
+                        <img src="equip_xiaomi.jpg" alt="Coordenação de equipe de marketing" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800'">
+                        <div class="photo-overlay">
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Liderança</span>
+                            <h4 class="text-lg font-bold">Marketing Strategy</h4>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 md:py-24">
-        <div class="max-w-3xl mx-auto px-4">
-            <div class="bg-[#111] border border-gray-800 rounded-2xl p-8 md:p-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-bold mb-4">Vamos elevar o nível dos seus dados?</h2>
-                <p class="text-gray-400 mb-8">Disponível para projetos de automação e análise de mídia performance.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/5511940310907" target="_blank" class="bg-green-600/10 border border-green-600/30 text-green-500 px-6 py-4 rounded-xl font-bold hover:bg-green-600/20 transition-all flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
-                    <a href="mailto:lucas.uzita14@gmail.com" class="bg-cyan-600/10 border border-cyan-600/30 text-cyan-400 px-6 py-4 rounded-xl font-bold hover:bg-cyan-600/20 transition-all flex items-center justify-center gap-2">
-                        <i class="fas fa-envelope"></i> lucas.uzita14@gmail.com
-                    </a>
+        <!-- Contato -->
+        <section id="contato" class="py-32 max-w-4xl mx-auto px-6">
+            <div class="gradient-border">
+                <div class="bg-slate-950 rounded-[calc(1rem-1px)] p-12 text-center space-y-8">
+                    <h2 class="text-4xl font-bold">Vamos otimizar seus <span class="gradient-text">resultados</span>?</h2>
+                    <p class="text-slate-400">Entre em contato para discutirmos como a união entre marketing de performance e análise de dados pode transformar o seu negócio.</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-6 pt-4">
+                        <a href="mailto:lucas.uzita14@gmail.com" class="flex items-center px-6 py-3 glass rounded-xl hover:bg-white/5 transition-colors">
+                            <i class="fas fa-envelope mr-3 text-blue-500"></i> lucas.uzita14@gmail.com
+                        </a>
+                        <a href="tel:+5511940310907" class="flex items-center px-6 py-3 glass rounded-xl hover:bg-white/5 transition-colors">
+                            <i class="fas fa-phone mr-3 text-green-500"></i> (11) 94031-0907
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="py-12 border-t border-gray-900 text-center">
-        <span class="text-lg font-bold mono">Lucas<span class="text-cyan-400">.Kazuo</span></span>
-        <p class="text-gray-600 text-xs mt-4 uppercase tracking-widest">&copy; 2024 - Marketing Data Intelligence</p>
+    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Lucas Kazuo • Marketing Data & Performance</p>
+            <div class="flex space-x-6">
+                <a href="https://www.linkedin.com/in/lucas-kazuo-nishiuchi-uzita/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://github.com/LucasKazuoMKT" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Accordion Interaction
-        function toggleAccordion(element) {
-            const isActive = element.classList.contains('active');
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                item.classList.remove('active');
-                item.querySelector('.chevron-icon').className = 'fas fa-plus text-gray-700 text-xs mt-2 chevron-icon transition-all';
-            });
-            if (!isActive) {
-                element.classList.add('active');
-                element.querySelector('.chevron-icon').className = 'fas fa-minus text-cyan-400 text-xs mt-2 chevron-icon transition-all';
-            }
-        }
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith("#")) {
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const offset = 100;
+                        const bodyRect = document.body.getBoundingClientRect().top;
+                        const elementRect = target.getBoundingClientRect().top;
+                        const elementPosition = elementRect - bodyRect;
+                        const offsetPosition = elementPosition - offset;
 
-        // Mobile Menu
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-        });
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-        });
-        document.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-
-        // Background Animation
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        document.getElementById('canvas-container').appendChild(canvas);
-        let width, height, particles = [];
-        const particleCount = window.innerWidth < 768 ? 25 : 60;
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
-            }
-            update() {
-                this.x += this.vx; this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
-            particles.forEach((p, i) => {
-                p.update();
-                ctx.beginPath(); ctx.arc(p.x, p.y, 1, 0, Math.PI * 2); ctx.fill();
-                for (let j = i + 1; j < particles.length; j++) {
-                    const d = Math.sqrt((p.x - particles[j].x)**2 + (p.y - particles[j].y)**2);
-                    if (d < 120) {
-                        ctx.beginPath(); 
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.12 * (1 - d/120)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(p.x, p.y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 }
             });
-            requestAnimationFrame(animate);
-        }
+        });
 
-        window.addEventListener('resize', resize);
-        resize();
-        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-        animate();
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 </body>
 </html>
