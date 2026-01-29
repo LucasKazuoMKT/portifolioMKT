@@ -116,7 +116,7 @@
             </div>
             <button class="lg:hidden text-2xl" onclick="toggleMenu()"><i class="fas fa-bars text-white"></i></button>
         </div>
-        <!-- Mobile Menu (Simple toggle) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-white/5 p-6 flex flex-col space-y-4 text-center">
             <a href="#sobre" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Sobre</a>
             <a href="#stacks" onclick="toggleMenu()" class="text-slate-400 hover:text-white">Stacks</a>
@@ -127,7 +127,7 @@
     </nav>
 
     <main class="pt-32">
-        <!-- Hero Section / Sobre -->
+        <!-- Hero Section -->
         <section id="sobre" class="max-w-7xl mx-auto px-6 pb-24 grid lg:grid-cols-2 gap-16 items-center">
             <div class="space-y-8">
                 <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest">
@@ -141,7 +141,7 @@
                     Growth & <span class="gradient-text">Data Analysis</span> Specialist.
                 </h1>
                 <p class="text-xl text-slate-400 leading-relaxed max-w-xl">
-                    Estrategista de marketing digital unindo a visão de negócios à análise de dados avançada. Especialista em automação com <span class="text-white font-semibold">Python</span> e gestão de mídia <span class="text-white font-semibold">Full Funnel</span>.
+                    Estrategista unindo visão de negócios à engenharia de dados. Especialista em automação com <span class="text-white font-semibold">Python (FastAPI)</span>, IA e gestão de mídia <span class="text-white font-semibold">Full Funnel</span>.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
                     <a href="#experiencia" class="px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-slate-200 transition-all">Ver Experiência</a>
@@ -162,24 +162,23 @@
                                 <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
                                 <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
                             </div>
-                            <span class="text-xs text-slate-500 font-mono">marketing_automation.py</span>
+                            <span class="text-xs text-slate-500 font-mono">ai_optimization.py</span>
                         </div>
                         <div class="font-mono text-sm leading-loose">
-                            <p><span class="text-purple-400">import</span> pandas <span class="text-purple-400">as</span> pd</p>
-                            <p><span class="text-purple-400">import</span> google_ads_api <span class="text-purple-400">as</span> ads</p>
-                            <p class="text-slate-500 mt-4"># Extraindo dados de performance</p>
-                            <p>df = ads.get_report(<span class="text-yellow-200">'ROI_Analaysis'</span>)</p>
-                            <p>df[<span class="text-yellow-200">'ROAS'</span>] = df[<span class="text-yellow-200">'Conversion_Value'</span>] / df[<span class="text-yellow-200">'Cost'</span>]</p>
-                            <p><span class="text-purple-400">if</span> df[<span class="text-yellow-200">'ROAS'</span>].mean() < 3.5:</p>
-                            <p class="ml-4 text-blue-400">optimize_campaigns(strategy=<span class="text-yellow-200">'retargeting'</span>)</p>
-                            <p class="text-green-400 mt-4">print("Insights gerados com sucesso!")</p>
+                            <p><span class="text-purple-400">from</span> fastapi <span class="text-purple-400">import</span> FastAPI</p>
+                            <p><span class="text-purple-400">from</span> langchain <span class="text-purple-400">import</span> RAG_Chain</p>
+                            <p class="text-slate-500 mt-4"># Analisando performance com IA</p>
+                            <p>analysis = RAG.analyze(source=<span class="text-yellow-200">'HubSpot_Data'</span>)</p>
+                            <p><span class="text-purple-400">if</span> analysis.roi_potential > <span class="text-blue-400">0.25</span>:</p>
+                            <p class="ml-4 text-blue-400">trigger_expansion(strategy=<span class="text-yellow-200">'retention'</span>)</p>
+                            <p class="text-green-400 mt-4">print("Estratégia otimizada via GCP!")</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Stacks / Skills -->
+        <!-- Stacks -->
         <section id="stacks" class="py-24 glass border-y border-white/5">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid lg:grid-cols-4 gap-12">
@@ -189,31 +188,32 @@
                     </div>
                     <div class="lg:col-span-3 grid md:grid-cols-3 gap-8">
                         <div class="space-y-4">
-                            <h4 class="font-bold flex items-center"><i class="fas fa-code mr-2 text-blue-500"></i> Dados & Dev</h4>
+                            <h4 class="font-bold flex items-center"><i class="fas fa-microchip mr-2 text-blue-500"></i> IA & Dev</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Python (Pandas/NumPy)</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Web Scraping</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Automação de APIs</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">SQL (Básico)</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">HTML/WordPress</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Python (FastAPI)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">RAG & GenAI</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Google Cloud (GCP)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Git/GitHub</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Machine Learning</span>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="font-bold flex items-center"><i class="fas fa-bullhorn mr-2 text-blue-500"></i> Mídia Paga</h4>
+                            <h4 class="font-bold flex items-center"><i class="fas fa-bullhorn mr-2 text-blue-500"></i> Mídia & CRM</h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Google Ads (Avançado)</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Google Ads (Advanced)</span>
                                 <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Meta Ads</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">TikTok/LinkedIn Ads</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Growth Hacking</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">HubSpot CRM</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">All-In CRM</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Budget Management</span>
                             </div>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="font-bold flex items-center"><i class="fas fa-chart-pie mr-2 text-blue-500"></i> Tracking & BI</h4>
+                            <h4 class="font-bold flex items-center"><i class="fas fa-chart-line mr-2 text-blue-500"></i> Analytics & BI</h4>
                             <div class="flex flex-wrap gap-2">
                                 <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">GA4 & GTM</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Excel (Avançado)</span>
                                 <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Looker Studio</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">CRM (All-In)</span>
-                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">SEO Técnico</span>
+                                <span class="skill-tag px-3 py-1.5 rounded-lg text-xs font-semibold">Reporting</span>
                             </div>
                         </div>
                     </div>
@@ -221,7 +221,7 @@
             </div>
         </section>
 
-        <!-- Experiência Detalhada -->
+        <!-- Experiência -->
         <section id="experiencia" class="py-32 max-w-5xl mx-auto px-6">
             <h2 class="text-4xl font-bold mb-20 text-center">Jornada Profissional</h2>
             
@@ -232,15 +232,29 @@
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Marketing Data Analyst</h3>
-                            <p class="text-blue-500 font-semibold">Mad Company (Agência de Marketing)</p>
+                            <p class="text-blue-500 font-semibold">Mad Company</p>
                         </div>
-                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">2024 — ATUAL</span>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">JAN 2025 — ATUAL</span>
                     </div>
-                    <ul class="space-y-3 text-slate-400 leading-relaxed list-disc list-inside marker:text-blue-500">
-                        <li>Análise estratégica de grandes volumes de dados para otimização contínua de campanhas de performance.</li>
-                        <li>Desenvolvimento de dashboards automatizados para monitoramento de KPIs vitais em tempo real.</li>
-                        <li><strong class="text-slate-200">Destaque Técnico:</strong> Implementação de pipelines de dados via <span class="text-blue-400">Python</span> para integração direta entre Google Ads, Meta e CRM, eliminando relatórios manuais e aumentando a precisão do ROI.</li>
-                        <li>Colaboração ativa com times de mídia para redução de CAC através de modelos preditivos e analíticos.</li>
+                    <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Consultoria estratégica e gestão de contas SaaS, alinhando KPIs entre cliente e operação.</li>
+                        <li>Implementação avançada de <strong class="text-slate-200">HubSpot</strong> para monitorização de funil e retenção de carteira.</li>
+                        <li>Desenvolvimento de APIs com <strong class="text-slate-200">FastAPI</strong> e integração de <strong class="text-blue-400">RAG (IA)</strong> para análise preditiva de performance, com deploy em GCP.</li>
+                    </ul>
+                </div>
+
+                <!-- Yume -->
+                <div class="timeline-item relative pl-12 group">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Proprietário & Gestor Administrativo</h3>
+                            <p class="text-blue-500 font-semibold">Yume Japan Food</p>
+                        </div>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">JAN 2023 — DEZ 2024</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Liderança total da operação, com foco em <strong class="text-slate-200">Gestão Financeira</strong> e eficiência de custos.</li>
+                        <li>Desenvolvimento da estratégia de marca e posicionamento de mercado no setor de gastronomia.</li>
                     </ul>
                 </div>
 
@@ -249,14 +263,14 @@
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
                             <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Analista de Brand Strategy</h3>
-                            <p class="text-blue-500 font-semibold">OPPO Brasil</p>
+                            <p class="text-blue-500 font-semibold">OPPO Brasil (Agência New Content)</p>
                         </div>
-                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">Maio 2021 — Abril 2022</span>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">MAIO 2021 — ABRIL 2022</span>
                     </div>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
-                        <li>Liderança na elaboração do calendário estratégico para o lançamento oficial da marca OPPO no Brasil.</li>
-                        <li>Gestão e acompanhamento de mídias 360º (online e offline) em parceria com agências multinacionais.</li>
-                        <li>Automação de monitorização de KPIs através de integração de APIs de redes sociais.</li>
+                        <li>Elaboração de briefings estratégicos e aprovação de planos táticos para o <strong class="text-slate-200">lançamento da marca no Brasil</strong>.</li>
+                        <li>Gestão de Budget e controle financeiro (Provisionamento, Validação de Notas Fiscais e Contratos).</li>
+                        <li>Participação em Mesas de Performance focadas na eficiência de negócio e consistência de marca.</li>
                     </ul>
                 </div>
 
@@ -264,82 +278,91 @@
                 <div class="timeline-item relative pl-12 group">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Marketing Product Manager & CRM</h3>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Especialista em Marketing Digital</h3>
                             <p class="text-blue-500 font-semibold">Xiaomi (DL Brasil)</p>
                         </div>
-                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">Jan 2019 — Maio 2021</span>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">JAN 2019 — MAIO 2021</span>
                     </div>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
-                        <li>Participação direta na estruturação das campanhas de expansão da marca no território brasileiro.</li>
-                        <li><strong class="text-slate-200">CRM Specialist:</strong> Criação de réguas de comunicação complexas na plataforma All-In com lógica de segmentação avançada.</li>
-                        <li>Gestão da comunicação de produto e estratégia de público-alvo para o mercado nacional.</li>
+                        <li>Gestão de campanhas nacionais e coordenação de agências para lançamentos das linhas Mi e Redmi.</li>
+                        <li><strong class="text-slate-200">CRM & Insights:</strong> Análise de dados comportamentais via <strong class="text-blue-400">All-In</strong> para otimização da base de consumidores.</li>
+                        <li>Interface jurídica/financeira para gestão de contratos e provisionamentos para a diretoria.</li>
+                    </ul>
+                </div>
+
+                <!-- Rawar -->
+                <div class="timeline-item relative pl-12 group">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Analista de Marketing Digital</h3>
+                            <p class="text-blue-500 font-semibold">Rawar (DL Brasil)</p>
+                        </div>
+                        <span class="text-slate-500 text-sm font-mono mt-2 lg:mt-0">JAN 2017 — DEZ 2019</span>
+                    </div>
+                    <ul class="space-y-3 text-slate-400 text-sm leading-relaxed list-disc list-inside marker:text-blue-500">
+                        <li>Estratégias de awareness e performance para o segmento de tecnologia gamer.</li>
+                        <li>Gestão de influenciadores e ativação em grandes eventos como <strong class="text-slate-200">BGS</strong>.</li>
+                        <li>Elaboração de relatórios de métricas e suporte na adaptação criativa de materiais.</li>
                     </ul>
                 </div>
 
             </div>
         </section>
 
-        <!-- Resultados e Vivências Visuais -->
+        <!-- Resultados e Vivências -->
         <section id="feitos" class="py-32 bg-slate-900/50">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl font-bold mb-4">Marcos & Vivências</h2>
-                    <p class="text-slate-400">Resultados tangíveis e presença em grandes eventos do setor.</p>
+                    <p class="text-slate-400">Projetos de impacto e expertise multissetorial.</p>
                 </div>
 
-                <!-- Cards de Texto -->
                 <div class="grid md:grid-cols-3 gap-8 mb-16">
                     <div class="p-8 rounded-3xl glass text-left border border-white/5">
                         <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6 text-orange-500">
-                            <i class="fas fa-store text-xl"></i>
+                            <i class="fas fa-rocket text-xl"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-2">Lançamento Xiaomi BR</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">Estruturação de marketing digital para a estreia da primeira loja oficial e criação de interesse massivo na marca.</p>
+                        <h4 class="text-xl font-bold mb-2">GenAI & RAG</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Implementação de modelos de IA para automatizar a leitura de dados de CRM e gerar insights preditivos de ROI.</p>
                     </div>
 
                     <div class="p-8 rounded-3xl glass text-left border border-white/5">
                         <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-6 text-green-500">
-                            <i class="fas fa-gamepad text-xl"></i>
+                            <i class="fas fa-chart-pie text-xl"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-2">BGS & NVIDIA</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">Organização estratégica de agenda e ativação com influenciadores digitais durante a feira gamer.</p>
+                        <h4 class="text-xl font-bold mb-2">Gestão de Budget</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Expertise em controle financeiro rigoroso para grandes marcas globais (Xiaomi e Oppo) no mercado brasileiro.</p>
                     </div>
 
                     <div class="p-8 rounded-3xl glass text-left border border-white/5">
                         <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 text-blue-500">
-                            <i class="fas fa-award text-xl"></i>
+                            <i class="fas fa-users text-xl"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-2">Reconhecimento 2020</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">Certificado de Performance Excepcional na campanha Livestream Sales da Xiaomi global.</p>
+                        <h4 class="text-xl font-bold mb-2">Estratégia 360º</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">Liderança em lançamentos de produtos nacionais, integrando mídia paga, CRM e relações com agências.</p>
                     </div>
                 </div>
 
-                <!-- Galeria de Fotos -->
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Foto 1 -->
                     <div class="photo-card group">
-                        <img src="Xiaomi_launch.jpg" alt="Lançamento oficial Xiaomi Brasil" onerror="this.src='https://images.unsplash.com/photo-1556740734-7f9a2b7a0f42?auto=format&fit=crop&q=80&w=800'">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536ad8a?auto=format&fit=crop&q=80&w=800" alt="Data Analysis">
                         <div class="photo-overlay">
-                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Xiaomi Brasil</span>
-                            <h4 class="text-lg font-bold">Lançamento Oficial</h4>
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Data Science</span>
+                            <h4 class="text-lg font-bold">Automação de Relatórios</h4>
                         </div>
                     </div>
-
-                    <!-- Foto 2 -->
                     <div class="photo-card group">
-                        <img src="redminote.jpg" alt="Campanha Série Redmi Note" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&q=80&w=800'">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Performance Marketing">
                         <div class="photo-overlay">
-                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Performance</span>
-                            <h4 class="text-lg font-bold">Série Redmi Note</h4>
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Growth</span>
+                            <h4 class="text-lg font-bold">Mídia Full Funnel</h4>
                         </div>
                     </div>
-
-                    <!-- Foto 3 -->
                     <div class="photo-card group">
-                        <img src="equip_xiaomi.jpg" alt="Coordenação de equipe de marketing" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800'">
+                        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800" alt="Strategy">
                         <div class="photo-overlay">
-                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Liderança</span>
-                            <h4 class="text-lg font-bold">Marketing Strategy</h4>
+                            <span class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-2">Negócios</span>
+                            <h4 class="text-lg font-bold">Visão de Proprietário</h4>
                         </div>
                     </div>
                 </div>
@@ -351,7 +374,7 @@
             <div class="gradient-border">
                 <div class="bg-slate-950 rounded-[calc(1rem-1px)] p-12 text-center space-y-8">
                     <h2 class="text-4xl font-bold">Vamos otimizar seus <span class="gradient-text">resultados</span>?</h2>
-                    <p class="text-slate-400">Entre em contato!</p>
+                    <p class="text-slate-400">Interessado em automação, análise de dados ou mídia de performance?</p>
                     
                     <div class="flex flex-wrap justify-center gap-6 pt-4">
                         <a href="mailto:lucas.uzita14@gmail.com" class="flex items-center px-6 py-3 glass rounded-xl hover:bg-white/5 transition-colors">
@@ -368,7 +391,7 @@
 
     <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>© 2026 Lucas Kazuo • Marketing Data & Performance</p>
+            <p>© 2026 Lucas Kazuo • Marketing Data & Performance Specialist</p>
             <div class="flex space-x-6">
                 <a href="https://www.linkedin.com/in/lucas-kazuo-nishiuchi-uzita/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
                 <a href="https://github.com/LucasKazuoMKT" target="_blank" class="hover:text-white transition-colors">GitHub</a>
@@ -408,4 +431,3 @@
     </script>
 </body>
 </html>
-
